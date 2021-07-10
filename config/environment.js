@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'highstreetly-ui',
+    podModulePrefix: 'highstreetly-ui/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',

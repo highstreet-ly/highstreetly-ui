@@ -1,7 +1,49 @@
-{{page-title "HighstreetlyUi"}}
+{{page-title "highstreet.ly - the easiest way to sell online"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<div class="wrapper">
+  <main>
 
-{{outlet}}
+    {{outlet}}
+
+  </main>
+
+  <footer>
+    <div class="container">
+      {{!-- LOGO --}}
+      <div class="text-center mb-10">
+        <img src="/img/logo-square.png" alt="highstreet.ly" class="inline w-24">
+      </div>
+
+      {{!-- SOCIAL ICONS --}}
+      <ul class="text-center">
+        <li class="inline"><a href="https://www.facebook.com/highstreetly"><img src="/img/social/Facebook.svg" alt="Follow us on Facebook" class="inline w-14 mx-1"></a></li>
+        <li class="inline"><a href="https://www.instagram.com/highstreetly"><img src="/img/social/Instagram.svg" alt="Follow us on Instagram" class="inline w-14 mx-1"></a></li>
+        <li class="inline"><a href="https://twitter.com/highstreetly"><img src="/img/social/Twitter.svg" alt="Follow us on Twitter" class="inline w-14 mx-1"></a></li>
+      </ul>
+
+      <ul class="text-center mt-10 text-xs">
+        <li class="inline-block mr-3">
+          <LinkTo @route="legal.terms">Terms of Use</LinkTo>
+        </li>
+        <li class="inline-block mr-3">
+          <LinkTo @route="legal.privacy">Privacy Policy</LinkTo>
+        </li>
+        <li class="inline-block mr-3">
+          <LinkTo @route="legal.acceptable-use">Acceptable Use Policy</LinkTo>
+        </li>
+        <li class="inline-block mr-3">
+          <LinkTo @route="legal.data-processing">Data Processing</LinkTo>
+        </li>
+        <li class="inline-block">
+          <LinkTo @route="legal.covid">COVID-19</LinkTo>
+        </li>
+      </ul>
+
+      {{!-- COPYRIGHT TEXT --}}
+      <p class="text-center mt-5">
+        ©2021 highstreet.ly, All Rights Reserved
+      </p>
+
+    </div>
+  </footer>
+</div>
