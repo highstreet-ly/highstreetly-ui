@@ -1,0 +1,100 @@
+<div class="register-form">
+  {{#if this.registered}}
+    <div class="register-success">
+      <h5 class="title">
+        Thanks for showing an interest!
+      </h5>
+      <p class="text">
+        We'll be in touch as soon as we're ready to go!
+      </p>
+    </div>
+  {{else}}
+    <form action="/" method="POST">
+      <fieldset class="mt-2 mb-6">
+        <legend class="title mb-4">About You</legend>
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name {{this.registerInterestData.firstName}}</label>
+              <Input @type="text" @id="firstName" @value={{this.registerInterestData.firstName}} class="form-control"/>
+              {{#if this.errors.firstName}}
+                {{#each this.errors.firstName as |error|}}
+                  <div class="text-danger"><small>{{error}}</small></div>
+                {{/each}}
+              {{/if}}
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <Input @type="text" @id="lastName" @value={{this.registerInterestData.lastName}} class="form-control"/>
+              {{#if this.errors.lastName}}
+                {{#each this.errors.lastName as |error|}}
+                  <div class="text-danger"><small>{{error}}</small></div>
+                {{/each}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <div class="form-group">
+              <label for="email" class="form-label">Your Email</label>
+              <Input @type="text" @id="email" @value={{this.registerInterestData.email}} class="form-control"/>
+              {{#if this.errors.email}}
+                {{#each this.errors.email as |error|}}
+                  <div class="text-danger"><small>{{error}}</small></div>
+                {{/each}}
+              {{/if}}
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone <small>(Optional)</small></label>
+              <Input @type="text" @id="phone" @value={{this.registerInterestData.phone}} class="form-control"/>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-6">
+        <legend class="title mb-4">About your business</legend>
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <div class="form-group">
+              <label for="businessName" class="form-label">Business name <small>(Optional)</small></label>
+              <Input @type="text" @id="businessName" @value={{this.registerInterestData.businessName }} class="form-control"/>
+              {{#if this.errors.businessName}}
+                {{#each this.errors.businessName as |error|}}
+                  <div class="text-danger"><small>{{error}}</small></div>
+                {{/each}}
+              {{/if}}
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="address" class="form-label">Address <small>(Optional)</small></label>
+              <Input @type="text" @id="address" @value={{this.registerInterestData.address}} class="form-control"/>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      {{!--{{g-recaptcha-invisible verified=(action "registerInterestFormSubmit")
+                              execute=reset
+                              reset=reset
+                              expired=(action "expired")}}--}}
+
+      <div class="text-center">
+        {{#if this.registering}}
+          <div>
+            <img src="/img/loading.svg" alt="Sending, please wait" class="inline" style="height:52px; color:white;">
+          </div>
+        {{else}}
+          <button name="register" class="btn btn-primary btn-lg" type="button" {{action "recaptchaCheck"}}>Register for early access</button>
+        {{/if}}
+      </div>
+      {{yield}}
+    </form>
+  {{/if}}
+</div>
