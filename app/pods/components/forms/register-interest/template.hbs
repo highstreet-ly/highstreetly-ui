@@ -1,11 +1,18 @@
 <div class="register-form">
   {{#if this.registered}}
+    <div class="flex items-center px-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-700">Thanks for registering for early access!</h2>
+        <p>We'll be in touch soon!</p>
+
+      </div>
+    </div>
     <div class="register-success">
       <h5 class="title">
-        Thanks for showing an interest!
+
       </h5>
       <p class="text">
-        We'll be in touch as soon as we're ready to go!
+
       </p>
     </div>
   {{else}}
@@ -17,9 +24,9 @@
             <div class="form-group">
               <label for="firstName" class="form-label">First Name {{this.registerInterestData.firstName}}</label>
               <Input @type="text" @id="firstName" @value={{this.registerInterestData.firstName}} class="form-control"/>
-              {{#if this.errors.firstName}}
-                {{#each this.errors.firstName as |error|}}
-                  <div class="text-danger"><small>{{error}}</small></div>
+              {{#if this.formErrors.firstName}}
+                {{#each this.formErrors.firstName as |error|}}
+                  <div class="font-medium text-red-800"><small>{{error}}</small></div>
                 {{/each}}
               {{/if}}
             </div>
@@ -28,9 +35,9 @@
             <div class="form-group">
               <label for="lastName" class="form-label">Last Name</label>
               <Input @type="text" @id="lastName" @value={{this.registerInterestData.lastName}} class="form-control"/>
-              {{#if this.errors.lastName}}
-                {{#each this.errors.lastName as |error|}}
-                  <div class="text-danger"><small>{{error}}</small></div>
+              {{#if this.formErrors.lastName}}
+                {{#each this.formErrors.lastName as |error|}}
+                  <div class="font-medium text-red-800"><small>{{error}}</small></div>
                 {{/each}}
               {{/if}}
             </div>
@@ -41,9 +48,9 @@
             <div class="form-group">
               <label for="email" class="form-label">Your Email</label>
               <Input @type="text" @id="email" @value={{this.registerInterestData.email}} class="form-control"/>
-              {{#if this.errors.email}}
-                {{#each this.errors.email as |error|}}
-                  <div class="text-danger"><small>{{error}}</small></div>
+              {{#if this.formErrors.email}}
+                {{#each this.formErrors.email as |error|}}
+                  <div class="font-medium text-red-800"><small>{{error}}</small></div>
                 {{/each}}
               {{/if}}
             </div>
@@ -64,9 +71,9 @@
             <div class="form-group">
               <label for="businessName" class="form-label">Business name <small>(Optional)</small></label>
               <Input @type="text" @id="businessName" @value={{this.registerInterestData.businessName }} class="form-control"/>
-              {{#if this.errors.businessName}}
-                {{#each this.errors.businessName as |error|}}
-                  <div class="text-danger"><small>{{error}}</small></div>
+              {{#if this.formErrors.businessName}}
+                {{#each this.formErrors.businessName as |error|}}
+                  <div class="font-medium text-red-800"><small>{{error}}</small></div>
                 {{/each}}
               {{/if}}
             </div>
@@ -80,18 +87,18 @@
         </div>
       </fieldset>
 
-      {{!--{{g-recaptcha-invisible verified=(action "registerInterestFormSubmit")
-                              execute=reset
-                              reset=reset
-                              expired=(action "expired")}}--}}
+      <GRecaptcha
+          @size="invisible"
+          @onSuccess={{action "onCaptchaResolved"}}
+      />
 
       <div class="text-center">
         {{#if this.registering}}
           <div>
-            <img src="/img/loading.svg" alt="Sending, please wait" class="inline" style="height:52px; color:white;">
+            <img src="/img/loading-button.svg" alt="Sending, please wait" class="inline" style="height:52px; color:white;">
           </div>
         {{else}}
-          <button name="register" class="btn btn-primary btn-lg" type="button" {{action "recaptchaCheck"}}>Register for early access</button>
+          <button name="register" class="btn btn-primary btn-lg" type="button" {{action "submit"}}>Register for early access</button>
         {{/if}}
       </div>
       {{yield}}

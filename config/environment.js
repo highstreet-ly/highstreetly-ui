@@ -24,12 +24,6 @@ module.exports = function (environment) {
       // when it is created
     },
 
-    'ember-cli-google': {
-      recaptcha: {
-        siteKey: '6LervN4ZAAAAAHZsKinGzNMqc8k6lhenVEnSKw6D',
-      },
-    },
-
     gReCaptcha: {
       jsUrl: 'https://www.google.com/recaptcha/api.js?render=explicit', // default
       siteKey: '6LervN4ZAAAAAHZsKinGzNMqc8k6lhenVEnSKw6D',
