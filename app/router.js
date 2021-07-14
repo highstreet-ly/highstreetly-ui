@@ -15,4 +15,5 @@ Router.map(function () {
     this.route('terms');
   });
   this.route('contact');
+  this.route('register');
 });
