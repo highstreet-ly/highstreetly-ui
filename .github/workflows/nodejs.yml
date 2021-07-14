@@ -1,0 +1,48 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+      - feature/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: docker registry credentials
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: sonatribe
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - run: npm install -g ember-cli
+    - run: npm install
+    # we want this to be ember test eventually
+    # - run: ember test --server
+    - run: ember build
+      env:
+        CI: true
+        A_RECORD: highstreet
+        DASH_API: https://api.dashboard.highstreet.ly
+        DASH_UI: https://dashboard.highstreet.ly
+        DOMAIN=: highstreet.ly
+        IDS: https://ids.highstreet.ly
+        MAIN_API: https://api.highstreet.ly
+        MAIN_UI: https://highstreet.ly
+        NAMESPACE: highstreet-ly
+        ORDERS_API: https://api.orders.highstreet.ly
+        ORDERS_UI: https://orders.highstreet.ly
+        TICKETS_API: https://api.tickets.highstreet.ly
+        TICKETS_UI: https://tickets.highstreet.ly
+        TLD: ly
+        WIDGET_API: https://api.widget.highstreet.ly

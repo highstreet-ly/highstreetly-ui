@@ -1,15 +1,18 @@
-<div class="hero text-center bg-fixed bg-center bg-cover" style="background-image:url('/img/hero-bg.jpg')">
+<div class="hero text-center bg-fixed bg-center bg-cover bg-brand"> <!--style="background-image:url('/img/hero-bg.jpg')"-->
   <div class="container mx-auto pt-10 px-5">
-    <div class="logo w-80 mx-auto">
+<!--    <div class="logo w-80 mx-auto">
       <a href="/" title="Highstreet.ly">
         <img src="/img/logo.png" alt="Highstreet.ly logo">
       </a>
+    </div>-->
+    <div class="mt-10 mb-5 ">
+      <h1 class="text-white text-2xl md:text-4xl font-medium" {{did-insert this.startTyping}} {{will-destroy this.stopTyping}}>
+        The <b><span id="typing"></span></b> way to <b>sell</b> online
+      </h1>
+      <p class="text-white font-medium text-lg">Create an shop front backed by powerful tools to help you sell online</p>
     </div>
-    <h1 class="text-white mt-10 text-5xl" {{did-insert this.startTyping}} {{will-destroy this.stopTyping}}>
-      The <b><span id="typing"></span></b> way <br>to <b>sell</b> online
-    </h1>
     <div>
-      <img src="/img/hero-img.png" alt="Highstreet.ly screenshots" class="inline">
+      <img src="/img/hero-img.png" alt="Highstreet.ly screenshots" class="inline-block" style="max-width:800px">
     </div>
   </div>
 </div>

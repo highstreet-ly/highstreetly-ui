@@ -64,7 +64,7 @@ export default class FormsRegisterInterestComponent extends Component {
 
     this.registering = false;
 
-      /*.catch(({ response, jqXHR, payload }) => {
+    /*.catch(({ response, jqXHR, payload }) => {
         console.log(response, jqXHR, payload)
         this.handleErrors(jqXHR.responseJSON);
         this.registering = false;
