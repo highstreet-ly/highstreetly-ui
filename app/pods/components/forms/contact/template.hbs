@@ -1,0 +1,93 @@
+<div class="contact-form">
+  {{#if this.contacted}}
+    <div class="flex items-center px-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-700">Thanks for reaching out!</h2>
+        <p>Someone from the highstreet.ly team will be in touch shortly</p>
+      </div>
+    </div>
+  {{else}}
+    <form action="/" method="POST">
+      <div class="grid grid-cols-1 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <Input @type="text" @id="name" @value={{this.contactData.name}} class="form-control"/>
+            {{#if this.formErrors.name}}
+              {{#each this.formErrors.name as |error|}}
+                <div class="font-medium text-red-800"><small>{{error}}</small></div>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <Input @type="text" @id="email" @value={{this.contactData.email}} class="form-control"/>
+            {{#if this.formErrors.lastName}}
+              {{#each this.formErrors.lastName as |error|}}
+                <div class="font-medium text-red-800"><small>{{error}}</small></div>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <Input @type="text" @id="phone" @value={{this.contactData.phone}} class="form-control"/>
+            {{#if this.formErrors.phone}}
+              {{#each this.formErrors.phone as |error|}}
+                <div class="font-medium text-red-800"><small>{{error}}</small></div>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{!--<div class="grid sm:grid-cols-1 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <Input @type="text" @id="subject" @value={{this.contactData.subject}} class="form-control"/>
+            {{#if this.formErrors.subject}}
+              {{#each this.formErrors.subject as |error|}}
+                <div class="font-medium text-red-800"><small>{{error}}</small></div>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </div>--}}
+
+      <div class="grid sm:grid-cols-1 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="message" class="form-label">How can we help?</label>
+            <Textarea @id="message" @value={{this.contactData.message}} class="form-control h-60"/>
+            {{#if this.formErrors.message}}
+              {{#each this.formErrors.message as |error|}}
+                <div class="font-medium text-red-800"><small>{{error}}</small></div>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+      <GRecaptcha
+          @size="invisible"
+          @onSuccess={{action "onCaptchaResolved"}}
+      />
+
+      <div class="text-center">
+        {{#if this.registering}}
+          <div>
+            <img src="/img/loading-button.svg" alt="Sending, please wait" class="inline" style="height:52px; color:white;">
+          </div>
+        {{else}}
+          <button name="contact" class="btn btn-primary btn-lg" type="button" {{action "submit"}}>Send message</button>
+        {{/if}}
+      </div>
+      {{yield}}
+    </form>
+  {{/if}}
+</div>

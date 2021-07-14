@@ -21,7 +21,6 @@ export default class FormsRegisterInterestComponent extends Component {
   @tracked formErrors = {};
 
   handleErrors(errors) {
-    console.log(errors);
     this.formErrors = errors;
     window.grecaptcha.reset();
   }
