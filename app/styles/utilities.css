@@ -1,5 +1,3 @@
-
-
 .subtitle {
   @apply text-sm uppercase font-bold tracking-wide;
 }
@@ -16,10 +14,19 @@
   @apply bg-brand text-white hover:bg-white text-xs font-bold hover:text-font py-3 px-6 border-2 border-white hover:border-transparent rounded uppercase;
 }
 
+.btn-transparent {
+  @apply bg-transparent;
+}
+
 .form-control {
   @apply border border-gray-300 px-5 py-3 text-sm w-full rounded;
 }
 
 .form-label {
   @apply text-sm uppercase text-left font-medium block;
+}
+
+.bg-brand-gradient {
+  background: rgb(241,135,2);
+  background: linear-gradient(149deg, rgba(241,135,2,1) 0%, rgba(241,135,2,1) 0%, rgba(251,91,1,1) 100%, rgba(251,91,1,1) 100%);
 }
