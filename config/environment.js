@@ -30,7 +30,7 @@ module.exports = function (environment) {
     },
 
     metricsAdapters: [
-      {
+      /*{
         name: 'GoogleAnalytics',
         environments: ['development', 'production'],
         config: {
@@ -43,6 +43,19 @@ module.exports = function (environment) {
           sendHitTask: environment !== 'development',
           // Specify Google Analytics plugins
           require: ['ecommerce'],
+        },
+      },*/
+      {
+        name: 'GoogleTagManager',
+        environments: ['development', 'production'],
+        config: {
+          id: 'GTM-M8HBR7Q',
+          // Use `analytics_debug.js` in development
+          debug: environment === 'development',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
         },
       },
     ],

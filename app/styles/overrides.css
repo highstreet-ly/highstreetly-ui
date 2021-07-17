@@ -4,6 +4,10 @@ body {
   font-weight: 300;
 }
 
+.grecaptcha-badge {
+  display:none;
+}
+
 .container {
   max-width: 1200px;
 }
