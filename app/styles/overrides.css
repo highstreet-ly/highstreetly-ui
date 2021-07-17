@@ -1,6 +1,6 @@
 body {
+  @apply text-gray-700 font-light;
   font-family: Montserrat,sans-serif;
-  color: #263238;
   font-weight: 300;
 }
 
