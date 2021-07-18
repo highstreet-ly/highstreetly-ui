@@ -11,7 +11,11 @@
 }
 
 .btn-inverse {
-  @apply bg-brand text-white hover:bg-white text-xs font-bold hover:text-font py-3 px-6 border-2 border-white hover:border-transparent rounded uppercase;
+  @apply  bg-brand-gradient text-white text-xs font-bold hover:text-font py-3 px-6 border-2 border-white hover:border-transparent rounded uppercase;
+}
+
+.btn-inverse:hover {
+  background:#fff;
 }
 
 .btn-transparent {
