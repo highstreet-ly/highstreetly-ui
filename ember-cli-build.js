@@ -14,6 +14,15 @@ const purgeCSS = {
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    'responsive-image': {
+      images: [
+        {
+          include: 'img/responsive/**/*',
+          widths: [800, 640, 600, 420, 375, 360, 320],
+          removeSource: true,
+        },
+      ],
+    },
     postcssOptions: {
       compile: {
         plugins: [

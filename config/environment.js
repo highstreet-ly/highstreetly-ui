@@ -59,6 +59,16 @@ module.exports = function (environment) {
         },
       },
     ],
+
+    /*'responsive-image': {
+      sourceDir: 'public/img/responsive',
+      destinationDir: 'public/img/responsive/generated',
+      quality: 80,
+      supportedWidths: [800, 640, 600, 420, 375, 360, 320],
+      removeSourceDir: false,
+      justCopy: false,
+      extensions: ['jpg', 'jpeg', 'png', 'gif'],
+    },*/
   };
 
   ENV['ember-simple-auth-token'] = {
