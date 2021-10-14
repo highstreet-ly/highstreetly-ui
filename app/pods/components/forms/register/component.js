@@ -111,16 +111,5 @@ export default class FormsRegisterComponent extends Component {
     }
 
     this.registering = false;
-
-    /*.catch(({ response, jqXHR, payload }) => {
-        console.log(response, jqXHR, payload)
-        this.handleErrors(jqXHR.responseJSON)
-        this.registering = false
-      })*/
   }
-
-  // @action
-  // submit() {
-  //   window.grecaptcha.execute()
-  // }
 }
