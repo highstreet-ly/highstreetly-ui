@@ -1,28 +1,31 @@
-import Model from '@ember-data/model';
-import { attr } from '@ember-data/model';
+import Model from '@ember-data/model'
+import { attr } from '@ember-data/model'
 
 export default class RegisterModel extends Model {
   @attr('string')
-  email;
+  email
 
   @attr('string')
-  password;
+  password
 
   @attr('string')
-  confirmPassword;
+  confirmPassword
 
   @attr('string')
-  redirect;
+  redirect
 
   @attr('string')
-  firstName;
+  firstName
 
   @attr('string')
-  lastName;
+  lastName
 
   @attr('string')
-  createEventName;
+  createEventName
 
   @attr('boolean')
-  onboarding;
+  onboarding
+
+  @attr('boolean')
+  createEventBusinessTypeId
 }
