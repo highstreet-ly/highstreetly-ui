@@ -1,0 +1,95 @@
+<div class="register-form" id="register">
+  {{#if this.registered}}
+  <div class="flex items-center px-10">
+    <div class="text-center">
+      <h2 class="text-3xl font-700">Thanks for registering for early access!</h2>
+      <p>Check your email to complete your registration!</p>
+    </div>
+  </div>
+  {{else}}
+  <form action="/" method="POST">
+    <fieldset class="mt-2 mb-6">
+      <legend class="title mb-4">About You</legend>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="firstName" class="form-label">First Name</label>
+            <Input @type="text" @id="firstName" @value={{this.registerData.firstName}} class="form-control" />
+            {{#if this.formErrors.firstName}}
+            {{#each this.formErrors.firstName as |error|}}
+            <div class="font-medium text-red-800"><small>{{error}}</small></div>
+            {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <Input @type="text" @id="lastName" @value={{this.registerData.lastName}} class="form-control" />
+            {{#if this.formErrors.lastName}}
+            {{#each this.formErrors.lastName as |error|}}
+            <div class="font-medium text-red-800"><small>{{error}}</small></div>
+            {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="email" class="form-label">Your Email</label>
+            <Input @type="text" @id="email" @value={{this.registerData.email}} class="form-control" />
+            {{#if this.formErrors.email}}
+            {{#each this.formErrors.email as |error|}}
+            <div class="font-medium text-red-800"><small>{{error}}</small></div>
+            {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <Input @type="password" @id="password" @value={{this.registerData.password}} class="form-control" />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="mb-6">
+      <legend class="title mb-4">About your business</legend>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <div class="form-group">
+            <label for="businessName" class="form-label">Business name <small>(Optional)</small></label>
+            <Input @type="text" @id="businessName" @value={{this.registerData.businessName }} class="form-control" />
+            {{#if this.formErrors.businessName}}
+            {{#each this.formErrors.businessName as |error|}}
+            <div class="font-medium text-red-800"><small>{{error}}</small></div>
+            {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="address" class="form-label">Address <small>(Optional)</small></label>
+            <Input @type="text" @id="address" @value={{this.registerData.address}} class="form-control" />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+
+    <div class="text-center">
+      {{#if this.registering}}
+      <div>
+        <img src="/img/loading-button.svg" alt="Sending, please wait" class="inline" style="height:52px; color:white;">
+      </div>
+      {{else}}
+      <button name="register" class="btn btn-primary btn-lg" type="button" {{action "submit" }}>Register</button>
+      {{/if}}
+    </div>
+    {{yield}}
+  </form>
+  {{/if}}
+</div>
