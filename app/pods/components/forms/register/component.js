@@ -21,6 +21,7 @@ export default class FormsRegisterComponent extends Component {
     contactPhone: null,
     contactPost: null,
     email: null,
+    businessType: null,
   };
 
   @tracked formErrors = {};
@@ -38,6 +39,11 @@ export default class FormsRegisterComponent extends Component {
     var re =
       /^(([^<>()[\]\\.,:\s@"]+(\.[^<>()[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  @action
+  didSelectBusinessType(bt) {
+    this.registerData.businessType = bt
   }
 
   @action
@@ -83,11 +89,12 @@ export default class FormsRegisterComponent extends Component {
       });
 
       if (existingEvent.length > 0) {
+        this.formErrors = {};
         this.formErrors['businessName'] = [];
         this.formErrors['businessName'].push(
           'A business with that name is already registered.'
         );
-
+        this.registering = false;
         return;
       }
 
@@ -101,6 +108,7 @@ export default class FormsRegisterComponent extends Component {
         createEventName: this.registerData.businessName,
         firstName: this.registerData.firstName,
         lastName: this.registerData.lastName,
+        //createEventBusinessTypeId: this.registerData.businessType.id
       });
 
       await registration.save();
