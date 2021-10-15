@@ -5,7 +5,7 @@
         <h2 class='text-3xl font-700'>Thanks, that's all we need for now!</h2>
         <p class='text'>
           We'll get
-          <b>{{this.registerData.eventName}}</b>
+          <b>{{this.registerData.businessName}}</b>
           set up for you now, and it'll be waiting for you on your dashboard.
         </p>
         <p>Just one more thing, we've sent an email to
@@ -38,7 +38,7 @@
           <div class='form-group'>
             <label for='businessType' class='form-label'>Business Type</label>
             
-            {{!-- <UI::Select id="businessType" @value={{@eventInstance.businessType}} @onSelect={{this.didSelectBusinessType}} as |sb|>
+            <UI::Select id="businessType" @value={{@eventInstance.businessType}} @onSelect={{this.didSelectBusinessType}} as |sb|>
               <sb.SelectedOption>
                 {{if sb.value.name sb.value.name "Select an type"}}
               </sb.SelectedOption>
@@ -52,7 +52,7 @@
                   </sb.Option>
                 {{/each}}
               </sb.Options>
-            </UI::Select> --}}
+            </UI::Select>
 
             {{#if this.formErrors.businessType}}
               {{#each this.formErrors.businessType as |error|}}

@@ -26,6 +26,6 @@ export default class RegisterModel extends Model {
   @attr('boolean')
   onboarding;
 
-  @attr('boolean')
+  @attr('string')
   createEventBusinessTypeId;
 }
