@@ -8,9 +8,4 @@ export default class RegisterController extends Controller {
   get isLaunched() {
     return Env.sonatribe.launched;
   }
-
-  @action
-  didSelectBusinessType(bt){
-    console.log(bt)
-  }
 }

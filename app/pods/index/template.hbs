@@ -188,7 +188,7 @@
 
   <div class='home-register bg-gray-200 py-16'>
     {{#if (eq this.isLaunched '1')}}
-      <RegisterBlock />
+      <RegisterBlock @businessTypes={{businessTypes}} />
     {{else}}
       <RegisterInterestBlock />
     {{/if}}
