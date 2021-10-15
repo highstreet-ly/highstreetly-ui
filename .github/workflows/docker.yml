@@ -52,10 +52,10 @@ jobs:
         STRIPE_CLIENT_ID: ca_BZCgKyvK7Ywug3UOghG5VHADqYbNRTz9
         LAUNCHED: 1
 
-    - name: Build the Docker image sonatribe/highstreet-ui-dev
-      run: docker build -t sonatribe/highstreet-ui-dev:${{ steps.get_version.outputs.version }} .
-    - name: push sonatribe/highstreet-ui-dev
-      run: docker push sonatribe/highstreet-ui-dev:${{ steps.get_version.outputs.version }}
+    - name: Build the Docker image sonatribe/highstreet-ui-wayne
+      run: docker build -t sonatribe/highstreet-ui-wayne:${{ steps.get_version.outputs.version }} .
+    - name: push sonatribe/highstreet-ui-wayne
+      run: docker push sonatribe/highstreet-ui-wayne:${{ steps.get_version.outputs.version }}
 
     - run: ember build production --env=production
       env:
