@@ -29,6 +29,7 @@
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "@zestia/ember-select-box": "^15.3.1",
     "autoprefixer": "^10.2.6",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
