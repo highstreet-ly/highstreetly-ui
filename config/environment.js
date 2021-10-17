@@ -92,6 +92,10 @@ module.exports = function (environment) {
 
   ENV.sonatribe.Domain = process.env.DOMAIN;
   ENV.sonatribe.Api = process.env.MAIN_API;
+  ENV.sonatribe.apiNamespace = process.env.API_NAMEPSACE;
+
+
+
   ENV.sonatribe.Client = process.env.MAIN_UI;
 
   ENV.sonatribe.DashApi = process.env.DASH_API;
@@ -105,7 +109,7 @@ module.exports = function (environment) {
   ENV.sonatribe.stripeClientId = process.env.STRIPE_CLIENT_ID;
 
   ENV.sonatribe.partnerId = process.env.PARTNER_ID;
-  ENV.sonatribe.apiNamespace = process.env.API_NAMEPSACE;
+  
   ENV.sonatribe.ClientSilentRenew = process.env.CLIENT_SILENT_RENEW;
   ENV.sonatribe.ImageBlobContainer = process.env.IMAGE_BLOB_CONTAINER;
 
