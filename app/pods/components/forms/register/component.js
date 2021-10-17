@@ -4,6 +4,7 @@ import Env from 'highstreetly-ui/config/environment';
 import { tracked } from '@glimmer/tracking';
 import { isEmpty } from '@ember/utils';
 import { inject as service } from '@ember/service';
+import { sort } from '@ember/object/computed';
 
 export default class FormsRegisterComponent extends Component {
   @service
@@ -12,6 +13,7 @@ export default class FormsRegisterComponent extends Component {
   @tracked registered = false;
   @tracked registering = false;
 
+  @tracked
   registerData = {
     businessName: null,
     firstName: null,
@@ -23,6 +25,10 @@ export default class FormsRegisterComponent extends Component {
     email: null,
     businessType: null,
   };
+
+  sortBy = ['name'];
+  @sort('args.businessTypes', 'sortBy')
+  sortedBusinessTypes;
 
   @tracked formErrors = {};
 
