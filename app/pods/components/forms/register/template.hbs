@@ -20,7 +20,7 @@
     <form action='/' method='POST'>
       <fieldset class='mt-2 mb-5'>
         <div class='grid sm:grid-cols-3 gap-4 mb-4'>
-          <div class='form-group col-span-3'>
+          <div class='form-group col-span-2'>
             <label for='businessName' class='form-label'>Your Business name</label>
             <Input
               @type='text'
@@ -35,18 +35,17 @@
               {{/each}}
             {{/if}}
           </div>
-          {{!-- <div class='form-group'>
+          <div class='form-group'>
             <label for='businessType' class='form-label'>Business Type</label>
-            
-            <UI::Select id="businessType" @value={{@eventInstance.businessType}} @onSelect={{this.didSelectBusinessType}} as |sb|>
+            <UI::Select id="businessType" @value={{@registerData.businessType}} @onSelect={{this.didSelectBusinessType}} as |sb|>
               <sb.SelectedOption>
-                {{if sb.value.name sb.value.name "Select an type"}}
+                {{if sb.value.name sb.value.name "Select a type"}}
               </sb.SelectedOption>
               <sb.Options>
                 <sb.Option @value="">
-                  Select an option
+                  Select a type
                 </sb.Option>
-                {{#each @businessTypes as |businessType|}}
+                {{#each this.sortedBusinessTypes as |businessType|}}
                   <sb.Option @value={{businessType}}>
                     {{businessType.name}}
                   </sb.Option>
@@ -60,7 +59,7 @@
                   >{{error}}</small></div>
               {{/each}}
             {{/if}}
-          </div> --}}
+          </div>
         </div>
       </fieldset>
       <fieldset class='mb-2'>
