@@ -114,7 +114,7 @@ export default class FormsRegisterComponent extends Component {
         createEventName: this.registerData.businessName,
         firstName: this.registerData.firstName,
         lastName: this.registerData.lastName,
-        //createEventBusinessTypeId: this.registerData.businessType.id
+        createEventBusinessTypeId: this.registerData.businessType.id
       });
 
       await registration.save();
