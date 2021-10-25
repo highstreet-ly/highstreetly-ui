@@ -24,11 +24,37 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: sonatribe
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - run: npm install -g ember-cli tailwindcss
-    - run: npm install
+    - run: npm install -g ember-cli tailwindcss yarn
+    - run: yarn install
     - id: get_version
       uses: battila7/get-version-action@v2
     - run: echo ${{ steps.get_version.outputs.version }}
+
+    - run: ember build production --env=production
+      env:
+        CI: true
+        A_RECORD: sonashop
+        DASH_API: https://api.dashboard.sonashop.xyz
+        DASH_UI: https://dashboard.sonashop.xyz
+        DOMAIN=: sonashop.xyz
+        IDS: https://ids.sonashop.xyz
+        MAIN_API: https://api.sonashop.xyz
+        MAIN_UI: https://sonashop.xyz
+        NAMESPACE: sonashop-xyz
+        ORDERS_API: https://api.orders.sonashop.xyz
+        ORDERS_UI: https://orders.sonashop.xyz
+        TICKETS_API: https://api.tickets.sonashop.xyz
+        TICKETS_UI: https://tickets.sonashop.xyz
+        TLD: xyz
+        WIDGET_API: https://api.widget.sonashop.xyz
+        ENQUIRY_URL: https://process.highstreet.ly
+        LAUNCHED: 1
+
+    - name: Build the Docker image sonatribe/highstreet-ui-test
+      run: docker build -t sonatribe/highstreet-ui-test:${{ steps.get_version.outputs.version }} .
+    - name: push sonatribe/highstreet-ui-test
+      run: docker push sonatribe/highstreet-ui-test:${{ steps.get_version.outputs.version }}
+
     - run: ember build production --env=production
       env:
         CI: true
@@ -82,29 +108,6 @@ jobs:
     - name: push sonatribe/highstreet-ui-live
       run: docker push sonatribe/highstreet-ui-live:${{ steps.get_version.outputs.version }}
 
-    - run: ember build production --env=production
-      env:
-        CI: true
-        A_RECORD: sonashop
-        DASH_API: https://api.dashboard.sonashop.xyz
-        DASH_UI: https://dashboard.sonashop.xyz
-        DOMAIN=: sonashop.xyz
-        IDS: https://ids.sonashop.xyz
-        MAIN_API: https://api.sonashop.xyz
-        MAIN_UI: https://sonashop.xyz
-        NAMESPACE: sonashop-xyz
-        ORDERS_API: https://api.orders.sonashop.xyz
-        ORDERS_UI: https://orders.sonashop.xyz
-        TICKETS_API: https://api.tickets.sonashop.xyz
-        TICKETS_UI: https://tickets.sonashop.xyz
-        TLD: xyz
-        WIDGET_API: https://api.widget.sonashop.xyz
-        ENQUIRY_URL: https://process.highstreet.ly
-        LAUNCHED: 1
 
-    - name: Build the Docker image sonatribe/highstreet-ui-test
-      run: docker build -t sonatribe/highstreet-ui-test:${{ steps.get_version.outputs.version }} .
-    - name: push sonatribe/highstreet-ui-test
-      run: docker push sonatribe/highstreet-ui-test:${{ steps.get_version.outputs.version }}
 
 
