@@ -24,8 +24,8 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: sonatribe
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - run: npm install -g ember-cli tailwindcss
-    - run: npm install
+    - run: npm install -g ember-cli tailwindcss yarn
+    - run: yarn install
     - id: get_version
       uses: battila7/get-version-action@v2
     - run: echo ${{ steps.get_version.outputs.version }}
