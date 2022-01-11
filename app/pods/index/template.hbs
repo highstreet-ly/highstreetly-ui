@@ -73,7 +73,28 @@
     <h2 class="text-3xl font-bold">Honest pricing. No surprises.</h2>
     <p class="text-gray-600">No contract. No risk. No credit card required.</p>
 
-    <section class="flex flex-col lg:flex-row items-start items-center lg:justify-center w-full w-full lg:px-10 py-12 ">
+    <section class="flex flex-col lg:flex-row items-center lg:justify-center w-full lg:px-10">
+      <article></article>
+      
+      <article class="w-1/3 lg:w-custom mb-10 lg:px-4 px-6 py-10 text-white text-center rounded-lg bg-brand bg-brand-gradient">
+        <h4 class="pb-4 flex justify-center font-bold border-b mb-0" style="border-color:#fa9e69;">
+          <span class="text-6xl">Free</span>
+        </h4>
+        <ul class="text-sm font-bold">
+          <li class="pt-3 pb-4 border-b" style="border-color:#fa9e69;">Powerful product management tools</li>
+          <li class="pt-3 pb-4 border-b" style="border-color:#fa9e69;">Sales analytics</li>
+          <li class="pt-4 pb-4 border-b" style="border-color:#fa9e69;">Multiple shops</li>
+          <li class="pt-4 pb-4 border-b" style="border-color:#fa9e69;">Operator app</li>
+          <li class="pt-4 pb-4 border-b" style="border-color:#fa9e69;">A highstreet.ly shop page, plus a widget to run the shop on your own website</li>
+          <li class="pt-4 pb-8">And much more to come!</li>
+        </ul>
+        <LinkTo @route="register" class="btn mt-5">Sign up now</LinkTo>
+      </article>
+
+      <article></article>
+    </section>
+
+    {{!-- <section class="flex flex-col lg:flex-row items-start items-center lg:justify-center w-full w-full lg:px-10 py-12 ">
       <article class="bg-white w-4/5 lg:w-custom mb-10 lg:px-4 px-6 py-10 text-center text-primary-dark rounded-lg">
         <h3 class="font-bold text-base">Basic</h3>
         <h4 class="pb-4 flex justify-center font-bold border-b border-gray-300 mb-0">
@@ -114,11 +135,11 @@
         </ul>
         <LinkTo @route="register" class="btn mt-5">Sign up now</LinkTo>
       </article>
-    </section>
+    </section> --}}
     <h5 class="text-3xl font-500">Transaction fees:</h5>
     <p>A transaction fee is, by default, added to the customer total so you receive 100% of your product price. <br>
-      This can also be configured if you wish to absorb the cost.</p>
-    <p class="font-bold">Example transaction fee is 40p (highstreet.ly) + 20p (stripe) + 1.4% (stripe). E.g. £20 order + 88p fee.</p>
+      This can also be configured to be taken off the paid price, if you wish to absorb the cost (for example - some customers prefer to charge a little more and pay the transaction fee themselves).</p>
+    <p class="font-bold">Example transaction fee is 20p (highstreet.ly) + 20p (stripe) + 1.4% (stripe). E.g. £20 order + 48p fee = £20.48.</p>
   </div>
 
   <div class="home-register bg-gray-200 py-16">
