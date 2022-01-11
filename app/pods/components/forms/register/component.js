@@ -4,7 +4,7 @@ import Env from 'highstreetly-ui/config/environment';
 import { tracked } from '@glimmer/tracking';
 import { isEmpty } from '@ember/utils';
 import { inject as service } from '@ember/service';
-import { sort } from '@ember/object/computed';
+// import { sort } from '@ember/object/computed';
 
 export default class FormsRegisterComponent extends Component {
   @service
@@ -23,12 +23,12 @@ export default class FormsRegisterComponent extends Component {
     contactPhone: null,
     contactPost: null,
     email: null,
-    businessType: null,
+    // businessType: null,
   };
 
-  sortBy = ['name'];
-  @sort('args.businessTypes', 'sortBy')
-  sortedBusinessTypes;
+  // sortBy = ['name'];
+  // @sort('args.businessTypes', 'sortBy')
+  // sortedBusinessTypes;
 
   @tracked formErrors = {};
 
@@ -47,10 +47,10 @@ export default class FormsRegisterComponent extends Component {
     return re.test(String(email).toLowerCase());
   }
 
-  @action
-  didSelectBusinessType(bt) {
-    this.registerData.businessType = bt
-  }
+  // @action
+  // didSelectBusinessType(bt) {
+  //   this.registerData.businessType = bt;
+  // }
 
   @action
   async submit() {
@@ -114,7 +114,7 @@ export default class FormsRegisterComponent extends Component {
         createEventName: this.registerData.businessName,
         firstName: this.registerData.firstName,
         lastName: this.registerData.lastName,
-        createEventBusinessTypeId: this.registerData.businessType.id
+        // createEventBusinessTypeId: this.registerData.businessType.id
       });
 
       await registration.save();
@@ -122,6 +122,7 @@ export default class FormsRegisterComponent extends Component {
       this.registered = true;
     } catch (e) {
       console.log('error');
+      console.log(e);
     }
 
     this.registering = false;
